@@ -1,0 +1,33 @@
+{
+    "name": "manzoli2122/salao-despesas",
+    "description": "Pacote Laravel",
+    "keywords": ["laravel"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Bruno Manzoli do Nascimento",
+            "email": "manzoli2122@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=7.0.0",
+        "manzoli2122/salao-atendimento": "1.*"
+    },
+    
+    "autoload": {
+        
+        "psr-4": {
+            "Manzoli2122\\Salao\\Despesas\\": "src/Despesas/"
+        }
+    },
+    "extra":{
+        "laravel":{
+            "providers":[
+                "Manzoli2122\\Salao\\Despesas\\DespesasServiceProvider"
+            ]
+            
+        }
+    },
+    
+    "minimum-stability": "dev"
+}
