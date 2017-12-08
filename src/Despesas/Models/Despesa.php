@@ -5,6 +5,8 @@ namespace Manzoli2122\Salao\Despesas\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
+use Illuminate\Support\Facades\Config;
+
 class Despesa extends Model
 {
 

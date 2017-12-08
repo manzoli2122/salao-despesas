@@ -5,6 +5,8 @@ namespace Manzoli2122\Salao\Despesas\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Builder;
 
+use Illuminate\Support\Facades\Config;
+
 class Salario extends Model
 {
     public function newInstance($attributes = [], $exists = false)

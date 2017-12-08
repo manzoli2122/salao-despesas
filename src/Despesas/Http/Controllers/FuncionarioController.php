@@ -11,11 +11,6 @@ use Illuminate\Http\Request;
 class FuncionarioController extends Controller
 {
 
-    
-
-
-
-
     protected $model;
 
     protected $adiantamento;
