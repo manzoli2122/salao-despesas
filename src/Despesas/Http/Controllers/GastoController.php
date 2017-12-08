@@ -1,6 +1,6 @@
 <?php
 
-namespace  AManzoli2122\Salao\Despesas\Http\Controllers;
+namespace  Manzoli2122\Salao\Despesas\Http\Controllers;
 
 use Illuminate\Http\Request;
 
