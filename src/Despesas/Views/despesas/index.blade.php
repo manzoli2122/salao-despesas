@@ -71,20 +71,7 @@
 							@endif
 
 
-							@if($apagados)
-								{!! Form::open(['route' => 'despesas.pesquisarApagados' , 'method' => 'get' ]) !!}
-							@else
-								{!! Form::open(['route' => 'despesas.pesquisar' , 'method' => 'get' ]) !!}
-							@endif								
-									<div class="input-group input-group-sm" style="width: 190px; margin-left:auto;">
-										{!! Form::text('key' , null , ['class' => 'form-control' , 'placeholder' => 'Pesquisar Serviços' , 'aria-label' => 'Search']) !!}
-										<div class="input-group-btn">
-											<button style="margin-right:10px;" class="btn btn-outline-success my-2 my-sm-0 " type="submit">
-												<i class="fa fa-search" aria-hidden="true"></i>
-											</button>	
-										</div>
-									</div>			
-							{!!  Form::close()  !!}
+							
 								
 							
 

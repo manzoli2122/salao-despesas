@@ -56,6 +56,7 @@
                                 <label for="categoria" >Categoria:</label>
                                 {!! Form::select('categoria', 
                                     [
+
                                         'energia' => 'energia',
                                         'água' => 'água', 
                                         'telefone' => 'telefone',
@@ -66,6 +67,7 @@
                                         'limpeza, higiene' => 'limpeza, higiene',
                                         'assessoria contábil' => 'assessoria contábil',
                                         'manutenção' => 'manutenção',
+                                        'avon' =>'avon',
                                         'Outros' => 'Outros'
                                     ]
                                     , null ,  ['placeholder' => 'Selecione a Categoria' , 'class' => 'form-control' ] ) !!}
