@@ -7,10 +7,18 @@ use Illuminate\Database\Eloquent\Builder;
 
 class Salario extends Model
 {
-    
-    public function __construct(){
-        $this->table = Config::get('despesas.despesas_table' , 'despesas') ;    
+    public function newInstance($attributes = [], $exists = false)
+    {
+        $model = parent::newInstance($attributes, $exists);    
+        $model->setTable($this->getTable());    
+        return $model;
     }
+
+    public function getTable()
+    {
+        return  Config::get('despesas.despesas_table' , 'despesas') ;
+    }
+
     
     protected $fillable = [
             'tipo', 'valor', 

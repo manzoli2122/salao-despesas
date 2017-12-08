@@ -6,11 +6,18 @@ use Illuminate\Database\Eloquent\Model;
 
 class Funcionario extends Model 
 {
-    
-
-    public function __construct(){
-        $this->table = Config::get('despesas.funcionario_table' , 'users') ;    
+    public function newInstance($attributes = [], $exists = false)
+    {
+        $model = parent::newInstance($attributes, $exists);    
+        $model->setTable($this->getTable());    
+        return $model;
     }
+
+    public function getTable()
+    {
+        return  Config::get('despesas.funcionario_table' , 'users') ; 
+    }
+
 
 
     protected $fillable = [
