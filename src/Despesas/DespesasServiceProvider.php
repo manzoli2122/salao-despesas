@@ -18,7 +18,7 @@ class DespesasServiceProvider extends ServiceProvider
             __DIR__.'/../config/config.php' =>  config_path('despesas.php'), 
         ], 'despesas_config');
         $this->mapWebRoutes();     
-        $this->loadViewsFrom(__DIR__.'/Views', 'despesa');
+        $this->loadViewsFrom(__DIR__.'/Views', 'despesas');
     }
 
 
