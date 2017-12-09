@@ -2,7 +2,7 @@
 
 namespace Manzoli2122\Salao\Despesas\Http\Controllers;
 
-
+use Manzoli2122\Salao\Cadastro\Http\Controllers\Padroes\Controller ;
 use Manzoli2122\Salao\Despesas\Models\Adiantamento;
 use Manzoli2122\Salao\Despesas\Models\Funcionario;
 use Manzoli2122\Salao\Despesas\Models\Salario;

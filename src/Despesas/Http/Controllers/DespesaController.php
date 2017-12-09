@@ -2,13 +2,9 @@
 
 namespace Manzoli2122\Salao\Despesas\Http\Controllers;
 
-
 use Manzoli2122\Salao\Despesas\Models\Despesa;
-
 use Illuminate\Http\Request;
-
-
-
+use Manzoli2122\Salao\Cadastro\Http\Controllers\Padroes\SoftDeleteController ;
 
 class DespesaController extends SoftDeleteController
 {
@@ -47,26 +43,7 @@ class DespesaController extends SoftDeleteController
 
     }
     
-   
-
-   
-    public function index()
-    {
-        $apagados = false;
-        $models = $this->model->index();
-        return view("{$this->view}.index", compact('models', 'apagados'));
-    }
-
-
-
-
-
-
-
-
-    
-
-    
+       
 
 
 }
