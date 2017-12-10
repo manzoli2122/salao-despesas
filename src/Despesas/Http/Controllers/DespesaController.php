@@ -37,7 +37,7 @@ class DespesaController extends SoftDeleteController
     public function index()
     {
         $apagados = false;
-        $models = $this->model::index($this->totalPage);
+        $models = $this->model->index($this->totalPage);
         return view("{$this->view}.index", compact('models', 'apagados'));
     }
        
