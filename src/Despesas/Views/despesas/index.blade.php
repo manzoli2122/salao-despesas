@@ -120,8 +120,8 @@
 															<i class="fa fa-eye" aria-hidden="true"></i>Exibir</a>								
 												@endpermissao	
 
-												@permissao('despesas-editar')								
-														<a class="btn btn-warning btn-sm" href='{{route("despesas.edit", $model->id)}}'>
+												@permissao('despesas-editar-master-power')								
+														<a class="btn btn-warning btn-sm disabled" href='{{route("despesas.edit", $model->id)}}'>
 															<i class="fa fa-pencil" aria-hidden="true"></i>Editar</a>								
 												@endpermissao				
 											
