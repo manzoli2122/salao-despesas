@@ -21,6 +21,11 @@
 
 @section( Config::get('despesas.templateMasterScript' , 'script')  )
         	<script>$(function(){setTimeout("$('.hide-msg').fadeOut();",5000)});</script>
+			<script>
+            function ApagarModel(val) {
+                return  confirm('Deseja mesmo apagar o cliente?'  );                       
+            }
+		</script>
 @endsection
 
 
@@ -109,7 +114,7 @@
 														
 												@permissao('despesas-delete-mater-ulta-mega')	
 													<a class="btn btn-danger btn-sm" href="javascript:void(0);" onclick="$(this).find('form').submit();" >
-														{!! Form::open(['route' => ['despesas.destroy', $model->id ],  'method' => 'DELETE' ])!!}                                        
+														{!! Form::open(['route' => ['despesas.destroy', $model->id ],  'method' => 'DELETE' , 'onsubmit' => " return  ApagarModel(this)" ])!!}                                        
 														{!! Form::close()!!}    
 														<i class="fa fa-trash" aria-hidden="true"></i>Extinguir</a> 		        
 													
@@ -127,7 +132,7 @@
 											
 												@permissao('despesas-soft-delete')			
 													<a class="btn btn-danger btn-sm"  href="javascript:void(0);" onclick="$(this).find('form').submit();" >
-															{!! Form::open(['route' => ['despesas.destroySoft', $model->id ],  'method' => 'DELETE' ])!!}                                        
+															{!! Form::open(['route' => ['despesas.destroySoft', $model->id ],  'method' => 'DELETE', 'onsubmit' => " return  ApagarModel(this)" ])!!}                                        
 															{!! Form::close()!!}    
 															<i class="fa fa-trash" aria-hidden="true"></i>Apagar</a>													
 												@endpermissao
