@@ -1,140 +1,115 @@
 
-<div class="modal fade bd-example-modal-lg" id="salarioModal" tabindex="-1" role="dialog" aria-labelledby="salarioModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg" style="max-width:90%;" role="document">
+<div class="modal fade bd-example-modal-lg" id="salarioModal{{$model->id}}" tabindex="-1" role="dialog" aria-labelledby="salarioModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" style="min-width:90%;" role="document">
         <div class="modal-content">
-            <div class="modal-header">
-                <h5 style="margin-left:50px;" class="modal-title" id="exampleModalLabel">Adicionar Salario</h5>
+            <div class="modal-header" style="background:green; color:white;">
+               
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
+                 <h4 class="modal-title" id="exampleModalLabel">Adicionar Salario</h4>
             </div>
             <div class="modal-body"> 
 
-
-                <section class="row text-center placeholders">
-                    <div class="col-12 col-sm-12 placeholder">
-                        <hr>
-                        @forelse($model->AtendimentosSemSalario() as $servico)
-
-                            <div class="row">	
-                                <div class="col-4 text-left">			
-                                    <p><b>{{$servico->servico->nome}}  </b>    </p>						
-                                    
-                                </div>
-                                <div class="col-2 text-right">
-                                    {{-- Carbon\Carbon::parse($servico->created_at)->format('d/m/Y ') --}}			
-                                    {{ $servico->created_at->format('d/m/Y')}}						
-                                </div>
-                                <div class="col-2 text-right">			
-                                    <p>  {{$servico->cliente->name }} </p>						
-                                </div>
-                                <div class="col-2 text-right">			
-                                    <p> Valor R$ {{  number_format($servico->valor  , 2 ,',', '') }} </p>						
-                                </div>
-                                <div class="col-1 text-right">			
-                                    <p>  {{$servico->porcentagem_funcionario }}% </p>						
-                                </div>
-                                <div class="col-1 text-right">			
-                                    <p> R$ {{ number_format( $servico->valorFuncioanrio()  , 2 ,',', '') }} </p>						
-                                </div>
-                            </div>                            
-                            <hr>
-                        @empty                                                    
-                                <p>Nenhum usuario encontrado</td>                            
-                        @endforelse
-
-                            <div class="row">	
-                                <div class="col-4 text-left">  </div>
-                                <div class="col-2 text-right"></div>
-                                <div class="col-2 text-right"></div>
-                                <div class="col-2 text-right">Total Bruto</div>
-                                <div class="col-2 text-right">			
-                                    <p> R$ {{ number_format( ($model->valorBrutoSalario() )  , 2 ,',', '') }} </p>						
-                                </div>
-                            </div>  
-                    </div> 
-
-                    
-                    <div class="col-12 col-sm-12 placeholder">
-                    <hr>
-                        <h4 style="text-align:center;">Adiantamentos</h4>
-                    </div>  
-
-                    <div class="col-12 col-sm-12 placeholder">
-                        <hr>
-                            @forelse($model->AdiantamentosSemSalario() as $adiantamento)
-
-                                <div class="row">	
-                                    <div class="col-4 text-left">			
-                                        <p><b>{{ $adiantamento->descricao }}  </b>    </p>						
-                                        
-                                    </div>
-                                    <div class="col-4 text-right">
-                                        {{-- Carbon\Carbon::parse($servico->created_at)->format('d/m/Y ') --}}			
-                                        {{ $adiantamento->created_at->format('d/m/Y')}}						
-                                    </div>
-                                    <div class="col-4 text-right">			
-                                        <p> Valor R$ {{  number_format($adiantamento->valor  , 2 ,',', '')  }} </p>						
-                                    </div>
-                                    
-                                </div>
-                                
-                                <hr>
-
-                            @empty
-                                                        
-                                    <p>Nenhum usuario encontrado</td>
-                                
-                            @endforelse
-                            <div class="row">	
-                                <div class="col-4 text-left">  </div>
-                                <div class="col-2 text-right"></div>
-                                <div class="col-2 text-right"></div>
-                                <div class="col-2 text-right">Total Adiantamento</div>
-                                <div class="col-2 text-right">			
-                                    <p> R$ {{ number_format( ($model->valorAdiantamento() )  , 2 ,',', '') }} </p>						
-                                </div>
-                            </div>  
-                    </div> 
-
-
-
-                    <div class="col-12 col-sm-12 placeholder">
-                        <hr>                           
-                            <div class="row" style="color:red">	
-                                <div class="col-4 text-left">  </div>
-                                <div class="col-2 text-right"></div>
-                                <div class="col-2 text-right"></div>
-                                <div class="col-2 text-right">Valor Salário Liquido</div>
-                                <div class="col-2 text-right">			
-                                    <p> R$ {{ number_format( ($model->valorSalarioLiquido() )  , 2 ,',', '') }} </p>						
-                                </div>
-                            </div>  
-                            <hr> 
-                    </div> 
-
-                </section>
-
-
-
-
-
                 {!! Form::open(['route' => ['salario.store' , $model->id ], 'class' => 'form form-search form-ds'])!!}
-               
+                    	
                     <div class="row">
-                        <div class="col-4 col-md-4">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        </div>
+                        <div class="col-12 col-md-6">
+                            <h1>Liquido a receber R$ {{number_format($model->valorSalarioLiquido(), 2,',' , '')}}  </h1>
+                        </div>                       
                         
-                        <div class="col-4 col-md-4 ml-auto">
+                        <div class="col-12 col-md-3">
                             <div class="form-group">
-                                {!! Form::submit('Enviar' , ['class' => 'btn btn-success']) !!}
+                               <h1> {!! Form::submit('Cadastrar Salário' , ['class' => 'btn btn-success']) !!} </h1>
                             </div>
+                        </div>
+                        <div class="col-12 col-md-3">
+                            <h1> <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button> </h1>
                         </div>
                     </div>
                                    
                 {!! Form::close()!!}
 
+
+
+    <section class="row text-center relatorio"> 
+
+        <div class="col-12 col-sm-9 comissoes" style="margin-bottom:10px; ">
+           	<h3 style=" background:green; color:white;" > Comissões a receber R$ {{number_format($model->valorBrutoSalario(), 2,',' , '')}} (Bruto)</h3>
+            
+			<div class="row">  
+				@forelse($model->AtendimentosSemSalario() as $atendimento) 
+                      
+                    <div class="col-md-4">
+                        <div class="box box-success">
+                            <div class="box-header with-border">
+                                <h3 class="box-title">{{$atendimento->servico->nome}}</h3>
+                                                          
+                            </div>                        
+                            <div class="box-body">                               
+                                    <div class="direct-chat-msg">
+                                        
+                                        <div class="direct-chat-info clearfix">                               
+                                            <span class="pull-left">{{$atendimento->created_at->format('d/m/Y')}}</span>
+                                            <span class="pull-right badge bg-red">Bruto R$ {{number_format($atendimento->valor, 2 ,',' , '')}}</span>
+                                        </div>
+										<div class="direct-chat-info clearfix">                               
+                                            <span class="pull-left">
+											@if($atendimento->cliente->apelido!= '')
+												{{$atendimento->cliente->apelido}}
+											@else 
+												{{$atendimento->cliente->name}}
+											@endif	
+											</span>
+                                            <span class="pull-right badge bg-green">Liquido R$ {{number_format($atendimento->valorFuncioanrio(), 2 ,',' , '')}}</span>
+                                        </div>
+                                    </div>
+                            </div>
+                        </div>
+                    </div>                    
+               
+
+				@empty
+				
+				@endforelse  
+            </div>
+        </div>
+        
+
+        
+        <div class="col-12 col-sm-3 vales" style="margin-bottom:0px;">
+            <h3 style=" background:orange; color:white;" >Vales R$ {{number_format($model->valorAdiantamento(), 2,',' , '')}}      </h3>
+            
+                    <div class="row">    
+                    
+					@forelse($model->AdiantamentosSemSalario() as $adiantamento)				
+						
+						<div class="col-md-12">
+							<div class="box box-warning">
+								<div class="box-header with-border">
+									<h3 class="box-title">{{$adiantamento->descricao}}</h3>
+															
+								</div>                        
+								<div class="box-body">                               
+										<div class="direct-chat-msg">
+											
+											<div class="direct-chat-info clearfix">                               
+												<span class="pull-left"> {{$adiantamento->created_at->format('d/m/Y')}} </span>
+												<span class="pull-right badge bg-orange">R$ {{number_format($adiantamento->valor, 2 ,',' , '')}} </span>
+											</div>
+										</div>
+								</div>
+							</div>
+						</div>  
+						
+					@empty				
+					@endforelse							
+        </div>  </div>
+    </section>
+		
+
+
+               
       
       
             </div>

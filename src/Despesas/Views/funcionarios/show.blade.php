@@ -92,6 +92,6 @@
         </div>  </div>
     </section>
 		
-		@include('despesas::funcionarios.modalSalario')
+	
 
 @endsection

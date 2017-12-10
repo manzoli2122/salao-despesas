@@ -67,7 +67,7 @@
 
 										<td>
 											@permissao('salario-cadastrar')
-												<a class="btn btn-info btn-sm" data-toggle="modal" data-target="#salarioModal">
+												<a class="btn btn-info btn-sm" data-toggle="modal" data-target="#salarioModal{{$model->id}}">
 													<i class="fa fa-plus" aria-hidden="true"></i>
 													Cadastrar  
 												</a>
@@ -86,6 +86,7 @@
 
 @forelse($models as $model)	
 	@include('despesas::funcionarios.modalAdiantamento')
+	@include('despesas::funcionarios.modalSalario')
 @empty									
 @endforelse
 									
