@@ -91,17 +91,7 @@
 					@endforelse							
         </div>  </div>
     </section>
-
-
-	
-
-	
 		
-		
-
-@include('despesas::funcionarios.modalAdiantamento')
-
-@include('despesas::funcionarios.modalSalario')
-
+		@include('despesas::funcionarios.modalSalario')
 
 @endsection

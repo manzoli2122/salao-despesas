@@ -1,11 +1,8 @@
 @extends( Config::get('despesas.templateMaster' , 'templates.templateMaster')  )
 
-
-
 @section( Config::get('despesas.templateMasterScript' , 'script')  )
         	<script>$(function(){setTimeout("$('.hide-msg').fadeOut();",5000)});</script>
-        @endsection
-
+@endsection
 
 @section( Config::get('despesas.templateMasterCss' , 'css')  ) 				
 			<style type="text/css">
@@ -18,14 +15,11 @@
 						font-size:12px;
 					}
 			</style>
-		@endsection
-
+@endsection
 
 @section( Config::get('despesas.templateMasterContentTitulo' , 'titulo-page')  )			
 				Listagem dos Funcionarios						
-		@endsection
-
-
+@endsection
 
 
 @section( Config::get('despesas.templateMasterContent' , 'contentMaster')  )
@@ -52,7 +46,7 @@
 									<th>Adiantamento</th>
 									<th>Salário</th>
 								</tr>
-								@forelse($models as $model)				
+								@forelse($models as $model)		
 									<tr>
 										<td> {{$model->name}} </td>	
 										<td>
@@ -64,7 +58,7 @@
 		
 										<td>
 											@permissao('adiantamento-cadastrar')
-												<a class="btn btn-warning btn-sm" data-toggle="modal" data-target="#adiantamentoModal">
+												<a class="btn btn-warning btn-sm" data-toggle="modal" data-target="#adiantamentoModal{{$model->id}}">
 													<i class="fa fa-plus" aria-hidden="true"></i>
 													Cadastrar  
 												</a>
@@ -90,6 +84,10 @@
 				</div>
 			</div>
 
-
+@forelse($models as $model)	
+	@include('despesas::funcionarios.modalAdiantamento')
+@empty									
+@endforelse
+									
 
 @endsection
