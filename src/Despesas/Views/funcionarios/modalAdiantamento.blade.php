@@ -11,7 +11,7 @@
             </div>
             <div class="modal-body">        
                 
-                
+                <h3> Valor Máximo do Adiantamento R$ {{number_format($model->valorSalarioLiquido(), 2 ,',' , '')}}</h3>
                 {!! Form::open(['route' => ['adiantamento.store' , $model->id ], 'class' => 'form form-search form-ds'])!!}
                
                     {{ Form::hidden('funcionario_id',  $model->id ) }}
@@ -26,7 +26,7 @@
 
                             <div class="form-group">
                                 <label for="valor" class="col-form-label text-right">Valor:</label>
-                                {!! Form::number('valor', null, ['placeholder' => 'Valor', 'step' => '0.01', 'class' => 'form-control']) !!}                        
+                                {!! Form::number('valor', null, ['placeholder' => 'Valor', 'step' => '0.01', 'class' => 'form-control' , 'max' => $model->valorSalarioLiquido() ]) !!}                        
                             </div>
                         
                         </div>
