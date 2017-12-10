@@ -22,27 +22,24 @@ class DespesaController extends SoftDeleteController
         $this->model = $despesa;       
         $this->middleware('auth');
 
-
-
-        $this->middleware('permissao:despesas')->only([ 'index' , 'show' , 'pesquisar' ]) ;
-        
+        $this->middleware('permissao:despesas')->only([ 'index' , 'show' , 'pesquisar' ]) ;        
         $this->middleware('permissao:despesas-cadastrar')->only([ 'create' , 'store']);
-
         $this->middleware('permissao:despesas-editar')->only([ 'edit' , 'update']);
-
         $this->middleware('permissao:despesas-soft-delete')->only([ 'destroySoft' ]);
-
         $this->middleware('permissao:despesas-restore')->only([ 'restore' ]);
-        
-        $this->middleware('permissao:despesas-admin-permanete-delete')->only([ 'destroy' ]);
-
+                $this->middleware('permissao:despesas-admin-permanete-delete')->only([ 'destroy' ]);
         $this->middleware('permissao:despesas-apagados')->only([ 'indexApagados' , 'showApagado' , 'pesquisarApagados']) ;
                    
 
-
-
     }
     
+
+    public function index()
+    {
+        $apagados = false;
+        $models = $this->model::index($this->totalPage);
+        return view("{$this->view}.index", compact('models', 'apagados'));
+    }
        
 
 
