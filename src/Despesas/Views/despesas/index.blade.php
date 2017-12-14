@@ -1,9 +1,9 @@
-@extends( Config::get('despesas.templateMaster' , 'templates.templateMaster')  )
+@extends( Config::get('app.templateMaster' , 'templates.templateMaster')  )
 
 
 		
 		
-@section( Config::get('despesas.templateMasterMenuLateral' , 'menuLateral')  )
+@section( Config::get('app.templateMasterMenuLateral' , 'menuLateral')  )
 			@if($apagados)
 				@permissao('despesas')
 					<li><a href="{{ route('despesas.index')}}"><i class="fa fa-circle-o text-blue"></i> <span>Despesas Ativas</span></a></li>
@@ -19,18 +19,18 @@
 @endsection
 
 
-@section( Config::get('despesas.templateMasterScript' , 'script')  )
+@push( Config::get('app.templateMasterScript' , 'script')  )
         	<script>$(function(){setTimeout("$('.hide-msg').fadeOut();",5000)});</script>
 			<script>
             function ApagarModel(val) {
                 return  confirm('Deseja mesmo apagar o cliente?'  );                       
             }
 		</script>
-@endsection
+@endpush
 
 
 		
-@section( Config::get('despesas.templateMasterCss' , 'css')  ) 			
+@push( Config::get('app.templateMasterCss' , 'css')  ) 			
 			<style type="text/css">
 					.btn-sm{
 						padding: 1px 10px;
@@ -41,10 +41,10 @@
 						font-size:12px;
 					}
 			</style>
-@endsection
+@endpush
 
 
-@section( Config::get('despesas.templateMasterContentTitulo' , 'titulo-page')  )	
+@section( Config::get('app.templateMasterContentTitulo' , 'titulo-page')  )	
 			Listagem das Despesa
 			@if($apagados)
 				 Apagados
@@ -53,7 +53,7 @@
 
 	
 
-@section( Config::get('despesas.templateMasterContent' , 'contentMaster')  )
+@section( Config::get('app.templateMasterContent' , 'contentMaster')  )
 		<section class="row Listagens">
 				<div class="col-12 col-sm-12 lista">		
 					@if(Session::has('success'))

@@ -1,24 +1,24 @@
-@extends( Config::get('despesas.templateMaster' , 'templates.templateMaster')  )
+@extends( Config::get('app.templateMaster' , 'templates.templateMaster')  )
 
 
 
-@section( Config::get('despesas.templateMasterContentTitulo' , 'titulo-page')  )			
+@section( Config::get('app.templateMasterContentTitulo' , 'titulo-page')  )			
 		Cadastrar / Editar Serviços
 @endsection
 
     
-@section( Config::get('despesas.templateMasterCss' , 'css')  ) 		
+@push( Config::get('app.templateMasterCss' , 'css')  ) 		
 		<link rel="stylesheet" href="{{url('/bower_components/select2/dist/css/select2.min.css')}}">
-@endsection
+@endpush
 
 
-@section( Config::get('despesas.templateMasterScript' , 'script')  )	
+@push( Config::get('app.templateMasterScript' , 'script')  )	
         <script src="{{url('/bower_components/select2/dist/js/select2.full.min.js')}}"></script>			
-@endsection
+@endpush
 
 
 
-@section( Config::get('despesas.templateMasterContent' , 'contentMaster')  )
+@section( Config::get('app.templateMasterContent' , 'contentMaster')  )
     
     <section class="row text-center placeholders">
         <div class="col-12 col-sm-12 placeholder">

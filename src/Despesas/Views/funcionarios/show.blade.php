@@ -1,15 +1,15 @@
-@extends( Config::get('despesas.templateMaster' , 'templates.templateMaster')  )
+@extends( Config::get('app.templateMaster' , 'templates.templateMaster')  )
 
-@section( Config::get('despesas.templateMasterContentTitulo' , 'titulo-page')  )			
+@section( Config::get('app.templateMasterContentTitulo' , 'titulo-page')  )			
 		{{$model->name}}
 @endsection
 
-@section(Config::get('despesas.templateMasterContentTituloSmall' , 'small-titulo-page'))				
+@section(Config::get('app.templateMasterContentTituloSmall' , 'small-titulo-page'))				
 		{{$model->email}}
 @endsection
 
 
-@section( Config::get('despesas.templateMasterContent' , 'contentMaster')  )
+@section( Config::get('app.templateMasterContent' , 'contentMaster')  )
 
 	<section class="row text-center placeholders">      
 		<div class="col-12 col-sm-6">

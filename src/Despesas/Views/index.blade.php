@@ -1,7 +1,7 @@
-@extends( Config::get('despesas.templateMaster' , 'templates.templateMaster')  )
+@extends( Config::get('app.templateMaster' , 'templates.templateMaster')  )
 
 
-@section( Config::get('despesas.templateMasterContent' , 'contentMaster')  )
+@section( Config::get('app.templateMasterContent' , 'contentMaster')  )
 
 
 @endsection

@@ -1,8 +1,8 @@
-@extends( Config::get('despesas.templateMaster' , 'templates.templateMaster')  )
+@extends( Config::get('app.templateMaster' , 'templates.templateMaster')  )
 
 
 
-@section( Config::get('despesas.templateMasterContent' , 'contentMaster')  )
+@section( Config::get('app.templateMasterContent' , 'contentMaster')  )
 	<section class="row text-center placeholders">
         <div class="col-12 col-sm-12 placeholder">
 			<h4 style="text-align:center;"> Cadastro de Salário </h4>

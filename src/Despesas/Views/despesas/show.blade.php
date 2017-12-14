@@ -1,11 +1,11 @@
-@extends( Config::get('despesas.templateMaster' , 'templates.templateMaster')  )
+@extends( Config::get('app.templateMaster' , 'templates.templateMaster')  )
 
 
-@section( Config::get('despesas.templateMasterContentTitulo' , 'titulo-page')  )			
+@section( Config::get('app.templateMasterContentTitulo' , 'titulo-page')  )			
 		{{$model->tipo}}
 	@endsection
 
-@section( Config::get('despesas.templateMasterContent' , 'contentMaster')  )
+@section( Config::get('app.templateMasterContent' , 'contentMaster')  )
         
         <section class="row text-center dados">
             
