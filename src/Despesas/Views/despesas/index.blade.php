@@ -60,12 +60,11 @@
 				},
 				columns: [
 					{ data: 'id', name: 'id' },
-					{ data: 'nome', name: 'nome' },
-					{ data: 'porcentagem_credito', name: 'porcentagem_credito' },
-					{ data: 'porcentagem_credito_parcelado', name: 'porcentagem_credito_parcelado' },
-					{ data: 'porcentagem_debito', name: 'porcentagem_debito' },
-					{ data: 'max_parcelas', name: 'max_parcelas' },
-					
+					{ data: 'tipo', name: 'tipo' },
+					{ data: 'descricao', name: 'descricao' },
+					{ data: 'created_at', name: 'created_at' },
+					{ data: 'valor', name: 'valor' },
+				
 					{ data: 'action', name: 'action', orderable: false, searchable: false, class: 'align-center'}
 				],
 			});

@@ -1,23 +1,26 @@
+
 @extends( Config::get('app.templateMaster' , 'templates.templateMaster')  )
 
+
 @section( Config::get('app.templateMasterContentTitulo' , 'titulo-page')  )			
-		Editar Despesas
+		Adicionar Despesa
 @endsection
     
+
 @section( Config::get('app.templateMasterContent' , 'content')  )
+
 
 <div class="col-md-12">
     <div class="box box-success">
 
-        <form method="post" action="{{route('despesas.update', $model->id)}}">
+        <form method="post" action="{{route('despesas.store')}}">
             
             {{csrf_field()}}
-            <input name="_method" type="hidden" value="PATCH">
-
-            @include('despesas::despesas._form', ['model' => $model])
+             {{ Form::hidden('tipo', 'despesa' ) }} 
+            @include('despesas::despesas._form', ['model' => new Manzoli2122\Salao\Despesas\Models\Despesa()])
 
             <div class="box-footer align-right">
-                <a class="btn btn-default" href="{{ route('despesas.index') }}">
+                <a class="btn btn-default" href="{{ URL::previous() }}">
                     <i class="fa fa-reply"></i> Cancelar
                 </a>
 
