@@ -49,10 +49,17 @@ class Despesa extends Model
 
 
 
-    public function index()
-    {
-        return $this->orderBy('created_at' , 'desc')->paginate(10);
-    }
 
+    
+    public function getDatatable()
+    {
+        return $this->select(['id', 'tipo', 'descricao',  'created_at' ,   'valor'   ]);        
+    }
+    
+    public function getDatatableApagados()
+    {
+        return $this->onlyTrashed()->select(['id', 'tipo', 'descricao',  'created_at' ,  'valor'  ]);        
+    }
+   
     
 }
