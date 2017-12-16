@@ -6,18 +6,18 @@
                 <label for="categoria">Nome</label>
                  <select class="form-control" name="categoria"  required>
                     <option value="">Selecione a Categoria</option>
-                    <option value="energia" >  energia  </option>
-                    <option value="água" >  água  </option>
-                    <option value="telefone" >  telefone  </option>
-                    <option value="internet" >  internet </option>
-                    <option value="aluguel" >  aluguel  </option>
-                    <option value="produtos" >  produtos  </option>
-                    <option value="impostos" >  impostos  </option>
-                    <option value="limpeza" >  limpeza  </option>
-                    <option value="assessoria contábil" >  assessoria contábil  </option>
-                    <option value="manutenção" >  manutenção  </option>
-                    <option value="avon" >  avon  </option>
-                    <option value="Outros" >  Outros  </option>
+                    <option value="energia" {{$model->categoria == 'energia' ? 'selected' : '' }}>  energia  </option>
+                    <option value="água" {{$model->categoria == 'água' ? 'selected' : '' }}>  água  </option>
+                    <option value="telefone" {{$model->categoria == 'telefone' ? 'selected' : '' }} >  telefone  </option>
+                    <option value="internet"{{$model->categoria == 'internet' ? 'selected' : '' }} >  internet </option>
+                    <option value="aluguel" {{$model->categoria == 'aluguel' ? 'selected' : '' }}>  aluguel  </option>
+                    <option value="produtos" {{$model->categoria == 'produtos' ? 'selected' : '' }}>  produtos  </option>
+                    <option value="impostos" {{$model->categoria == 'impostos' ? 'selected' : '' }}>  impostos  </option>
+                    <option value="limpeza" {{$model->categoria == 'limpeza' ? 'selected' : '' }}>  limpeza  </option>
+                    <option value="assessoria contábil" {{$model->categoria == 'assessoria contábil' ? 'selected' : '' }}>  assessoria contábil  </option>
+                    <option value="manutenção" {{$model->categoria == 'manutenção' ? 'selected' : '' }} >  manutenção  </option>
+                    <option value="avon" {{$model->categoria == 'avon' ? 'selected' : '' }} >  avon  </option>
+                    <option value="Outros" {{$model->categoria == 'Outros' ? 'selected' : '' }} >  Outros  </option>
                 </select>             
                 {!! $errors->first('categoria', '<p class="help-block">:message</p>') !!}
             </div>

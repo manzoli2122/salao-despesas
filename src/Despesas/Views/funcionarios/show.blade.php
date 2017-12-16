@@ -11,13 +11,13 @@
 
 @section( Config::get('app.templateMasterContent' , 'contentMaster')  )
 
-	<section class="row text-center placeholders">      
-		<div class="col-12 col-sm-6">
+	<section class="text-center placeholders">      
+		<div class="col-12 col-sm-12">
 			<h1>Liquido a receber R$ {{number_format($model->valorSalarioLiquido(), 2,',' , '')}} </h1>	
 		</div>
     </section>
 	
-    <section class="row text-center relatorio"> 
+    <section class="text-center relatorio"> 
 
         <div class="col-12 col-sm-9 comissoes" style="margin-bottom:10px; ">
            	<h3 style=" background:green; color:white;" > Comissões a receber R$ {{number_format($model->valorBrutoSalario(), 2,',' , '')}} (Bruto)</h3>

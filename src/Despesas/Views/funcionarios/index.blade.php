@@ -1,40 +1,12 @@
 @extends( Config::get('app.templateMaster' , 'templates.templateMaster')  )
 
-@push( Config::get('app.templateMasterScript' , 'script')  )
-        	<script>$(function(){setTimeout("$('.hide-msg').fadeOut();",5000)});</script>
-@endpush
-
-@push( Config::get('app.templateMasterCss' , 'css')  ) 				
-			<style type="text/css">
-					.btn-sm{
-						padding: 1px 10px;
-					}
-					.pagination{
-						margin:0px;
-						display: unset;
-						font-size:12px;
-					}
-			</style>
-@endpush
-
 @section( Config::get('app.templateMasterContentTitulo' , 'titulo-page')  )			
 				Listagem dos Funcionarios						
 @endsection
 
 
 @section( Config::get('app.templateMasterContent' , 'contentMaster')  )
-			<section class="row Listagens">
-				<div class="col-12 col-sm-12 lista">		
-					@if(Session::has('success'))
-						<div class="alert alert-success hide-msg" style="float: left; width:100%; margin: 10px 0px;">
-						{{Session::get('success')}}
-						</div>
-					@endif
-				</div>
-			</section>
-
-
-			<div class="row">
+			
 				<div class="col-xs-12">
 					<div class="box">
 						
@@ -82,7 +54,7 @@
 					</div>
 				</div>
 				</div>
-			</div>
+			
 
 @forelse($models as $model)	
 	@include('despesas::funcionarios.modalAdiantamento')

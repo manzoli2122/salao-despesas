@@ -31,10 +31,11 @@
             <table class="table table-bordered table-striped table-hover" id="datatable">
                 <thead>
                     <tr>
-						<th pesquisavel>ID</th>
-						<th pesquisavel>Tipo</th>
+						<th pesquisavel style="max-width:30px">ID</th>
+						<th pesquisavel style="max-width:100px">Tipo</th>
+						<th pesquisavel style="max-width:150px">Categoria</th>
 						<th>Descrição</th>
-						<th>Data</th>
+						<th pesquisavel style="max-width:120px">Data</th>
 						<th>Valor</th>		
 						
                         <th class="align-center" style="width:100px">Ações</th>
@@ -61,6 +62,7 @@
 				columns: [
 					{ data: 'id', name: 'id' },
 					{ data: 'tipo', name: 'tipo' },
+					{ data: 'categoria', name: 'categoria' },
 					{ data: 'descricao', name: 'descricao' },
 					{ data: 'created_at', name: 'created_at' },
 					{ data: 'valor', name: 'valor' },
@@ -71,7 +73,7 @@
 
 			dataTable.on('draw', function () {
 				$('[btn-excluir]').click(function (){
-					excluirRecursoPeloId($(this).data('id'), "@lang('msg.conf_excluir_o', ['1' => 'operadora'])", "{{ route('despesas.apagados') }}", 
+					excluirRecursoPeloId($(this).data('id'), "@lang('msg.conf_excluir_o', ['1' => 'despesas'])", "{{ route('despesas.apagados') }}", 
 						function(){
 							dataTable.row( $(this).parents('tr') ).remove().draw('page');
 						}
@@ -81,5 +83,3 @@
 		});
 	</script>
 @endpush
-
-

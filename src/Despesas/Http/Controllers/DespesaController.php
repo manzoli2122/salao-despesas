@@ -32,8 +32,39 @@ class DespesaController extends SoftDeleteController
         $this->middleware('permissao:despesas-apagados')->only([ 'indexApagados' , 'showApagado' ]) ;
                    
 
+
     }
     
+
+    
+    public function destroySoft($id)
+    {
+        try {            
+            $model = $this->model->find($id);
+            if($model->salario_id == '' and  $model->tipo <> 'salario')
+            {
+                $delete = $model->delete();                   
+                $msg = __('msg.sucesso_excluido', ['1' => $this->name ]);
+            }
+            else{
+                $erro = true;
+                $msg = __('msg.erro_salario_cadastrado');
+            }
+            
+        } 
+        catch(\Illuminate\Database\QueryException $e) 
+        {
+            $erro = true;
+            $msg = $e->errorInfo[1] == ErrosSQL::DELETE_OR_UPDATE_A_PARENT_ROW ? 
+                __('msg.erro_exclusao_fk', ['1' => $this->name , '2' => 'Model']):
+                __('msg.erro_bd');
+        }
+        return response()->json(['erro' => isset($erro), 'msg' => $msg], 200);
+
+    }
+
+
+
 
 
 }

@@ -4,8 +4,8 @@ namespace Manzoli2122\Salao\Despesas\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
-
-use Illuminate\Support\Facades\Config;
+use DB;
+use Config;
 
 class Despesa extends Model
 {
@@ -28,7 +28,7 @@ class Despesa extends Model
     
     
     protected $fillable = [
-            'tipo', 'valor', 'descricao' , 'categoria' ,
+            'tipo', 'valor', 'descricao' , 'categoria' , 'salario_id'
     ];
 
 
@@ -53,12 +53,12 @@ class Despesa extends Model
     
     public function getDatatable()
     {
-        return $this->select(['id', 'tipo', 'descricao',  'created_at' ,   'valor'   ]);        
+        return $this->select(['id', 'tipo', 'categoria', 'descricao',  DB::raw( " created_at as created_at " ) ,   DB::raw("concat( 'R$' , round( valor, 2 )) as valor")   ]);        
     }
     
     public function getDatatableApagados()
     {
-        return $this->onlyTrashed()->select(['id', 'tipo', 'descricao',  'created_at' ,  'valor'  ]);        
+        return $this->onlyTrashed()->select(['id', 'tipo', 'categoria', 'descricao',   DB::raw( " created_at as created_at " ) , DB::raw("concat( 'R$' , round( valor, 2 )) as valor") ]);        
     }
    
     

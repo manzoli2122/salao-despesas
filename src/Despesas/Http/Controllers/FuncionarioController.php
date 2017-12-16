@@ -12,14 +12,10 @@ class FuncionarioController extends Controller
 {
 
     protected $model;
-
     protected $adiantamento;
-
     protected $name = "Funcioanrios";
-
     protected $view = "despesas::funcionarios";
-
-    protected $route = "adiantamento";
+    protected $route = "funcionarios";
 
 
 
@@ -47,16 +43,8 @@ class FuncionarioController extends Controller
         $model = $this->model->ativo()->find($id);
         if($model)
             return view("{$this->view}.show", compact('model'));
-        return redirect()->route("funcionarios.index");
+        return redirect()->route("{$this->route}.index");
     }
-
-
-
-
-
-
-
-
 
 
 
@@ -67,9 +55,7 @@ class FuncionarioController extends Controller
     {         
         $dataForm = $request->all();              
         $insert = $this->adiantamento->create($dataForm); 
-
-        return redirect()->route("funcionarios.show", ['id' => $id]);          
-        
+        return redirect()->route("{$this->route}.show", ['id' => $id]);   
     }
 
 
@@ -78,8 +64,7 @@ class FuncionarioController extends Controller
 
     
     public function storeSalario($id)
-    {
-        
+    {        
         $funcionario = Funcionario::find($id);
         if($funcionario->valorSalarioLiquido()<=0){
             return  redirect()->route("funcionarios.show",['id' => $id]);
@@ -113,7 +98,7 @@ class FuncionarioController extends Controller
        // $salario->valor =  $valor ;       
        // $salario->save();
 
-       return redirect()->route("funcionarios.show", ['id' => $id]);          
+       return redirect()->route("{$this->route}.show", ['id' => $id]);          
        
         
     }

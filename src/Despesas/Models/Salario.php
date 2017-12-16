@@ -39,7 +39,7 @@ class Salario extends Model
 
     public function funcionario()
     {
-        return $this->belongsTo('Manzoli2122\Salao\Despesas\Models\Funcioanario', 'funcionario_id');
+        return $this->belongsTo('Manzoli2122\Salao\Despesas\Models\Funcionario', 'funcionario_id');
     }
 
 
