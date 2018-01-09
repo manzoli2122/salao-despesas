@@ -5,6 +5,7 @@ namespace Manzoli2122\Salao\Despesas\Http\Controllers;
 use Manzoli2122\Salao\Despesas\Models\Despesa;
 use Illuminate\Http\Request;
 use Manzoli2122\Salao\Cadastro\Http\Controllers\Padroes\SoftDeleteController ;
+use ChannelLog as Log;
 
 class DespesaController extends SoftDeleteController
 {
@@ -17,11 +18,14 @@ class DespesaController extends SoftDeleteController
     protected $view_apagados = "despesas::despesas.apagados";
     protected $route = "despesas";
 
+    //protected $logCannel = 'audit' ;
 
 
     public function __construct(Despesa $despesa  ){
         $this->model = $despesa;       
         $this->middleware('auth');
+
+        $this->logCannel = 'despesas';
 
         $this->middleware('permissao:despesas')->only([ 'index' , 'show'  ]) ;        
         $this->middleware('permissao:despesas-cadastrar')->only([ 'create' , 'store']);
@@ -36,7 +40,7 @@ class DespesaController extends SoftDeleteController
     }
     
 
-    
+    // NÃO EXCLUI SALARIO OU ADIANTAMENTO JA CALCULADO NO SALARIO.
     public function destroySoft($id)
     {
         try {            
@@ -45,6 +49,8 @@ class DespesaController extends SoftDeleteController
             {
                 $delete = $model->delete();                   
                 $msg = __('msg.sucesso_excluido', ['1' => $this->name ]);
+                $msg2 =  "DELETEs - " . $this->name . ' apagado(a) com sucesso !! ' . $model . ' responsavel: ' . session('users') ;
+                Log::write( $this->logCannel , $msg2  );  
             }
             else{
                 $erro = true;

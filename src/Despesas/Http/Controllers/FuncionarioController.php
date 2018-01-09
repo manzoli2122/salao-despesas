@@ -8,6 +8,8 @@ use Manzoli2122\Salao\Despesas\Models\Funcionario;
 use Manzoli2122\Salao\Despesas\Models\Salario;
 use Illuminate\Http\Request;
 
+use ChannelLog as Log;
+
 class FuncionarioController extends Controller
 {
 
@@ -16,11 +18,14 @@ class FuncionarioController extends Controller
     protected $name = "Funcioanrios";
     protected $view = "despesas::funcionarios";
     protected $route = "funcionarios";
-
+    protected $logCannel;
 
 
     public function __construct(Funcionario $funcionario, Adiantamento $adiantamento){
         $this->model = $funcionario; 
+
+        $this->logCannel = 'despesas';
+
         $this->adiantamento = $adiantamento;        
         $this->middleware('auth');
 
@@ -55,6 +60,10 @@ class FuncionarioController extends Controller
     {         
         $dataForm = $request->all();              
         $insert = $this->adiantamento->create($dataForm); 
+
+        $msg =  "CREATEs - " . 'Adiantamento Cadastrado(a) com sucesso !! ' . $insert . ' responsavel: ' . session('users') ;
+        Log::write( $this->logCannel , $msg  ); 
+
         return redirect()->route("{$this->route}.show", ['id' => $id]);   
     }
 
@@ -94,7 +103,8 @@ class FuncionarioController extends Controller
 
 
 
-        
+        $msg =  "CREATEs - " . 'Salario Cadastrado(a) com sucesso !! ' . $salario . ' responsavel: ' . session('users') ;
+        Log::write( $this->logCannel , $msg  ); 
        // $salario->valor =  $valor ;       
        // $salario->save();
 
