@@ -9,7 +9,7 @@
             </div>
             <div class="modal-body">                 
                 <h3> Valor Máximo do Adiantamento R$ {{number_format($model->valorSalarioLiquido(), 2 ,',' , '')}}</h3>
-                <form method="POST" action="{{route('adiantamento.store')}}" accept-charset="UTF-8" class="form form-search form-ds">
+                <form method="POST" action="{{route('adiantamento.store', $model->id )}}" accept-charset="UTF-8" class="form form-search form-ds">
                     {{csrf_field()}}
                     <input name="funcionario_id" value="{{$model->id}}" type="hidden">
                     <input name="tipo" value="adiantamento" type="hidden">
