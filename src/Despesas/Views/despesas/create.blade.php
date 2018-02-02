@@ -16,7 +16,8 @@
         <form method="post" action="{{route('despesas.store')}}">
             
             {{csrf_field()}}
-             {{ Form::hidden('tipo', 'despesa' ) }} 
+            <input name="tipo" type="hidden" value="despesa">
+            
             @include('despesas::despesas._form', ['model' => new Manzoli2122\Salao\Despesas\Models\Despesa()])
 
             <div class="box-footer align-right">
