@@ -53,7 +53,7 @@ class Despesa extends Model
     
     public function getDatatable()
     {
-        return $this->select(['id', 'tipo', 'categoria', 'descricao',  DB::raw( " created_at as created_at " ) ,   DB::raw("concat( 'R$' , round( valor, 2 )) as valor")   ])->orderBy('created_at', 'desc');        
+        return $this->select(['id', 'tipo', 'categoria', 'descricao',  DB::raw(  "DATE_FORMAT( created_at, '%Y-%m-%d')  as created_at " ) ,   DB::raw("concat( 'R$' , round( valor, 2 )) as valor")   ])->orderBy('created_at', 'desc');        
     }
     
     public function getDatatableApagados()
