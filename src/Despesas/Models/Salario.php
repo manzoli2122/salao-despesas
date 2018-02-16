@@ -23,7 +23,7 @@ class Salario extends Model
 
     
     protected $fillable = [
-            'tipo', 'valor', 
+            'tipo', 'valor', 'descricao' , 
     ];
 
 

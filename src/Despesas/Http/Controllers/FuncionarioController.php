@@ -85,6 +85,7 @@ class FuncionarioController extends Controller
         $salario->funcionario()->associate($funcionario);
         $salario->valor =  $funcionario->valorSalarioLiquido() ;
         $salario->tipo = 'salario';
+        $salario->descricao = $funcionario->name;
         $salario->save();
 
         foreach(   $funcionario->AtendimentosSemSalario() as $servico){

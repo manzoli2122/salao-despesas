@@ -45,8 +45,7 @@ class DespesaController extends SoftDeleteController
     {
         try {            
             $model = $this->model->find($id);
-            if($model->salario_id == '' and  $model->tipo <> 'salario')
-            {
+            if($model->salario_id == '' and  $model->tipo <> 'salario'){
                 $delete = $model->delete();                   
                 $msg = __('msg.sucesso_excluido', ['1' => $this->name ]);
                 $msg2 =  "DELETEs - " . $this->name . ' apagado(a) com sucesso !! ' . $model . ' responsavel: ' . session('users') ;
