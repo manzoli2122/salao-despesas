@@ -25,7 +25,13 @@ class Despesa extends Model
     }
     
     
-    
+    public function destinacao()
+    {
+        if( $this->tipo === 'adiantamento' or  $this->tipo === 'salario'  ){
+            return $this->funcionario->name   ;
+        }
+        return   $this->categoria ;
+    }
     
     protected $fillable = [
             'tipo', 'valor', 'descricao' , 'categoria' , 'salario_id'
