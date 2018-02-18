@@ -13,28 +13,40 @@
 @endsection
 
 
+@section( Config::get('app.templateMasterContentTituloSmallRigth' , 'small-content-header-right')  )
+	@permissao('operadoras-cadastrar')
+        <a href="{{ route('despesas.create')}}" class="btn btn-success btn-sm" title="Adicionar uma nova Operadora">
+			<i class="fa fa-plus"></i> Cadastrar Despesa
+		</a>	
+	@endpermissao 		
+@endsection
+
+@push( Config::get('app.templateMasterCss' , 'css')  )			
+	<style type="text/css">
+		.btn-group-sm>.btn, .btn-sm {
+			padding: 1px 10px;
+			font-size: 15px;		
+		} 
+		.table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th {
+			padding: 5.5px;
+		}
+	</style>
+@endpush
+
 		
 
 @section( Config::get('app.templateMasterContent' , 'content')  )
 
 <div class="col-xs-12">
     <div class="box box-success">
-		@permissao('operadoras-cadastrar')
-        	<div class="box-header align-right">			
-				<a href="{{ route('despesas.create')}}" class="btn btn-success" title="Adicionar uma nova Operadora">
-					<i class="fa fa-plus"></i> Cadastrar Despesa
-				</a>			           
-        	</div>
-		@endpermissao 
-
-        <div class="box-body">
+        <div class="box-body" style="padding-top: 5px; padding-bottom: 3px;">
             <table class="table table-bordered table-striped table-hover" id="datatable">
                 <thead>
                     <tr>
-						<th pesquisavel style="max-width:30px">ID</th>
+						<th pesquisavel style="max-width:20px">ID</th>
 						<th pesquisavel style="max-width:100px">Tipo</th>
 						<th pesquisavel style="max-width:150px">Categoria</th>
-						<th>Descrição</th>
+						<th  >Descrição</th>
 						<th pesquisavel style="max-width:120px">Data</th>
 						<th>Valor</th>		
 						
