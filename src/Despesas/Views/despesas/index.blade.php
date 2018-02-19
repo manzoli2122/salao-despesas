@@ -48,8 +48,7 @@
 						<th pesquisavel style="max-width:150px">Categoria</th>
 						<th  >Descrição</th>
 						<th pesquisavel style="max-width:120px">Data</th>
-						<th>Valor</th>		
-						
+						<th>Valor</th>	
                         <th class="align-center" style="width:120px">Ações</th>
                     </tr>
                 </thead>
